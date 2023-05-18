@@ -1,24 +1,50 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
+
+
+    // get data from context
+    const {login, googleLogin} = useContext(AuthContext);
+
     const [error, setError] = useState('');
 
 
-     // login with email and password
-     const handleLogin = async(event) => {
+    // login with email and password
+    const handleLogin = async(event) => {
         event.preventDefault();
         setError('');
 
         const email = event.target.email.value; 
         const password = event.target.password.value;
 
-        console.log(email, password);
+        try {
+            await login(email, password);
+            event.target.reset();
+        } catch(err) {
+            setError(err.message);
+        }
+
+    }
+
+
+    // login with google
+    const handleGoogleLogin = async(event) => {
+        setError('');
+
+        try {
+            await googleLogin();
+        } catch(error) {
+            setError(error.message);
+        }
+
     }
 
 
 
-    
+
+
     return (
         <div>
             <h1 className='text-4xl text-center pb-5 border-sec md:text-5xl text-sec'>Login</h1>
@@ -53,7 +79,7 @@ const Login = () => {
                     <div className="divider">OR</div>
                 </form>
                 <div className='card-body pt-0 flex'>
-                    <button className="px-3 py-1 text-sec transition border-2 border-sec hover:border-light cursor-pointer">Login with Google</button>
+                    <button onClick={handleGoogleLogin} className="px-3 py-1 text-sec transition border-2 border-sec hover:border-light cursor-pointer">Login with Google</button>
                 </div>
             </div>
         </div>
