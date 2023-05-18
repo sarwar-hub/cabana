@@ -3,6 +3,7 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/Home/HomePage";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register/Register";
+import SecondaryLayout from "./layouts/SecondaryLayout";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,13 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <HomePage></HomePage>
             },
+            
+        ]
+    },
+    {
+        path: '/',
+        element: <SecondaryLayout></SecondaryLayout>,
+        children: [
             {
                 path: 'login',
                 element: <Login></Login>

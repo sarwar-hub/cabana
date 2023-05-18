@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar';
 import Banner from './Banner';
+import Gellery from './Gellery';
 
 const HomePage = () => {
     return (
         <div>
-            <Banner></Banner>
+            <Gellery></Gellery>
         </div>
     );
 };
