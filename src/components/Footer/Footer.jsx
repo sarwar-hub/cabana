@@ -3,7 +3,9 @@ import logoSec from '../../assets/logo-sec.png';
 
 const Footer = () => {
     return (
-        <><footer className="footer justify-around p-10 bg-dark text-light">
+        <div className='bg-dark'>
+            <div className='max-w-[1280px] mx-auto'>
+            <footer className="footer justify-around md:justify-between p-10 bg-dark text-light">
             <div className="space-y-5 border-t bg-dark text-light border-base-300">
                 <div className="items-center grid-flow-col">
                     <img className='h-[40px]' src={logoSec} alt="" />
@@ -37,7 +39,8 @@ const Footer = () => {
                     <p>Copyright © 2023 - All right reserved | cubBuzz</p>
                 </div>
             </footer>
-        </>
+        </div>
+        </div>
     );
 };
 

@@ -5,9 +5,11 @@ import Footer from '../components/Footer/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className=''>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='px-5 max-w-[1280px] mx-auto my-5'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

@@ -4,14 +4,15 @@ import logo from '../../assets/logo-light.png';
 
 const Navbar = () => {
     const items = [
-        <li className='text-light hover:text-sec transition'><Link>Home</Link></li>,
-        <li className='text-light hover:text-sec transition'><Link>All Cubes</Link></li>,
-        <li className='text-light hover:text-sec transition'><Link>My Cubes</Link></li>,
-        <li className='text-light hover:text-sec transition'><Link>Add Cube</Link></li>,
-        <li className='text-light hover:text-sec transition'><Link>Blog</Link></li>,
+        <Link to='/'>Home</Link>,
+        <Link to='/allcubes'>All Cubes</Link>,
+        <Link to='/mycubes'>My Cubes</Link>,
+        <Link to='/addcube'>Add Cube</Link>,
+        <Link to='/blog'>Blog</Link>,
     ]
     return (
-        <div className="flex justify-between items-center bg-dark p-2">
+        <div className='bg-dark'>
+        <div className="max-w-[1280px] mx-auto flex justify-between items-center  p-2">
             <div className="flex items-center">
                 <div className="dropdown">
                     <label tabIndex={0} className=" lg:hidden">
@@ -19,22 +20,22 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="space-y-5 menu-compact dropdown-content mt-3 p-2 shadow bg-dark  w-52">
                         {/* items */}
-                        {items}
+                        {items.map((item, index)=> <li key={index} className='text-light hover:text-sec transition'>{item}</li>)}
                     </ul>
                 </div>
-                <Link><img className='h-[40px]' src={logo} alt="" /></Link>
+                <Link to='/'><img className='h-[40px]' src={logo} alt="" /></Link>
             </div>
             <div className="hidden lg:flex">
                 <ul className="space-x-5 menu-horizontal px-1">
                     {/* items */}
-                    {items}
+                    {items.map((item, index)=> <li key={index} className='text-light hover:text-sec transition'>{item}</li>)}
                 </ul>
             </div>
             <div className="flex gap-5 items-center">
-                <a className="px-3 py-1 text-light hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer">Login</a>
+                <Link to='/login' className="px-3 py-1 text-light hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer">Login</Link>
                 {/* user */}
 
-                <div className=" group">
+                <div className="relative group">
                     <label tabIndex={0} className="cursor-pointer avatar">
                         <div className="w-14 border-2 border-light hover:border-sec transition rounded-full">
                             <img src={''} />
@@ -48,6 +49,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
