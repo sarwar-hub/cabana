@@ -1,9 +1,10 @@
 import React from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 const CubeCard = ({ cube }) => {
 
-    const { _id, image, category, cubeName, price, rating } = cube;
+    const { _id, image, cubeName, price, rating } = cube;
     console.log(image);
     return (
         <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
@@ -22,7 +23,7 @@ const CubeCard = ({ cube }) => {
                     />
                     <span>({rating})</span>
                     </div>
-                    <button className="px-3 py-1 border-2 border-sec text-light hover:text-sec transition">View details →</button>
+                    <Link to={`/details/${_id}`}><button className="px-3 py-1 border-2 border-sec text-light hover:text-sec transition">View details →</button></Link>
                 </div>
             </div>
         </div>

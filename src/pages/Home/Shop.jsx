@@ -20,7 +20,7 @@ const Shop = () => {
     
 
     const filterByCategory4 = () => {
-        setTab('4x4');
+        
 
     }
     const filterByCategory3 = () => {
@@ -36,9 +36,9 @@ const Shop = () => {
             
             <div>
                 <button className={`${tab=='all'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('all')}>All</button>
-                <button className={`${tab=='4x4'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={filterByCategory4}>4x4</button>
-                <button className={`${tab=='3x3'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={filterByCategory3}>3x3</button>
-                <button className={`${tab=='2x2'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2`} onClick={filterByCategory2}>2x2</button>
+                <button className={`${tab=='4x4'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('4x4')}>4x4</button>
+                <button className={`${tab=='3x3'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('3x3')}>3x3</button>
+                <button className={`${tab=='2x2'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2`} onClick={()=>setTab('2x2')}>2x2</button>
             </div>
             <hr className='mb-5 border-sec'/>
 
