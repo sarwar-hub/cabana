@@ -5,6 +5,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import SecondaryLayout from "./layouts/SecondaryLayout";
 import Details from "./pages/Details/Details";
+import PrivateRout from "./routes/PrivateRout";
+import AllCubes from "./pages/AllCubes/AllCubes";
 
 
 const router = createBrowserRouter([
@@ -33,8 +35,13 @@ const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                element: <Details></Details>,
+                element: <PrivateRout><Details></Details></PrivateRout>,
                 loader: ({params})=>fetch(`http://localhost:5000/details/${params.id}`)
+            },
+            {
+                path: 'allCubes',
+                element: <AllCubes></AllCubes>,
+                loader: ()=>fetch('http://localhost:5000/cubes/all')
             }
         ]
     }

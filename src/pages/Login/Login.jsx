@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
@@ -8,6 +8,9 @@ const Login = () => {
 
     // get data from context
     const {login, googleLogin, loader} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location?.state?.from?.pathname || '/';
 
     
    
@@ -22,6 +25,7 @@ const Login = () => {
 
         try {
             await login(email, password);
+            navigate(from, { replace: true });
             event.target.reset();
         } catch(err) {
             setError(err.message);
@@ -36,6 +40,7 @@ const Login = () => {
 
         try {
             await googleLogin();
+            navigate(from, { replace: true });
         } catch(error) {
             setError(error.message);
         }
