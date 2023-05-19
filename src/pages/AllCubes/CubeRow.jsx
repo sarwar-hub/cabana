@@ -4,8 +4,8 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 const CubeRow = ({ cube, sl }) => {
 
-    const { _id, cubeName, image, sellerName, stockQuantity, category, price } = cube;
-    console.log(image);
+    const { _id, cubeName, sellerName, stockQuantity, category, price } = cube;
+   
     return (
         <tr>
             <th>{sl+1}</th>

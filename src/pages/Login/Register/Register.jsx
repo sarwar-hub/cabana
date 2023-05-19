@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Register = () => {
 
     const {register, updateNamePhoto, loader} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const [error, setError] = useState('');
     const [passError, setPassError] = useState('');
@@ -29,6 +33,7 @@ const Register = () => {
         try{
             await register(email, password);
             await updateNamePhoto(name, photo);
+            navigate(from, {replace:true});
             event.target.reset();
         }catch(err){
             setError(err.message);
