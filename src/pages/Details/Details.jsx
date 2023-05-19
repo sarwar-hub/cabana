@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Details = () => {
     const cube = useLoaderData();
-    const { _id, image, category, cubeName, price, rating, sellerName, sellerEmail, stockQuantity } = cube;
+    const { _id, image, category, cubeName, price, rating, sellerName, sellerEmail, stockQuantity, description } = cube;
 
     return (
         <>
@@ -14,13 +14,20 @@ const Details = () => {
             <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
                 <figure><img className='md:h-[400px] w-full md:w-[420px]' src={image} alt="cube image" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">{cubeName}</h2>
-                    <p><strong>Type: </strong>{category}</p>
-                    <p><strong>Seller Name: </strong>{sellerName}</p>
-                    <p><strong>Seller Email: </strong>{sellerEmail}</p>
-                    <p><strong>Stock Available: </strong>{stockQuantity}</p>
-                    <p><strong>Price: </strong>${price}</p>
-                    <div className="card-actions flex justify-between">
+                    <div className='flex justify-between'>
+                        <div>
+                            <h2 className="card-title">{cubeName}</h2>
+                            <p><strong>Type: </strong>{category}</p>
+                            <p><strong>Seller Name: </strong>{sellerName}</p>
+                            <p><strong>Seller Email: </strong>{sellerEmail}</p>
+                            <p><strong>Stock Available: </strong>{stockQuantity}</p>
+                            <p><strong>Price: </strong>${price}</p>
+                        </div>
+                        <div>
+                            <p>{description}</p>
+                        </div>
+                    </div>
+                    <div className="mt-auto card-actions flex justify-between">
                         <div className='flex items-center gap-2'>
                             <Rating
                                 readonly

@@ -7,6 +7,7 @@ import SecondaryLayout from "./layouts/SecondaryLayout";
 import Details from "./pages/Details/Details";
 import PrivateRout from "./routes/PrivateRout";
 import AllCubes from "./pages/AllCubes/AllCubes";
+import AddCube from "./pages/AddCube/AddCube";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
                 path: 'allCubes',
                 element: <AllCubes></AllCubes>,
                 loader: ()=>fetch('http://localhost:5000/cubes/all')
+            },
+            {
+                path: 'addCube',
+                element: <AddCube></AddCube>
             }
         ]
     }
