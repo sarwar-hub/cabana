@@ -65,7 +65,8 @@ const AuthProvider = ({children}) => {
         updateNamePhoto,
         login,
         googleLogin,
-        logout
+        logout,
+        loader
 
 
     }

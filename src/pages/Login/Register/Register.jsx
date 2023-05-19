@@ -5,7 +5,7 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 const Register = () => {
 
-    const {user, register, updateNamePhoto, login} = useContext(AuthContext);
+    const {register, updateNamePhoto, loader} = useContext(AuthContext);
 
     const [error, setError] = useState('');
     const [passError, setPassError] = useState('');
@@ -71,7 +71,7 @@ const Register = () => {
                         }
                     </div>
                     <div className="form-control mt-6">
-                        <button type='submit' className="px-3 py-1 text-light hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer">Register</button>
+                        <button type='submit' className="px-3 py-1 text-light hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer">{loader?'Please wait...':'Register'}</button>
                     </div>
                     <label className="label">
                         <p className='label-text-alt'>If already registered, go for <Link to='/login'><span className="text-white link link-hover">Login</span></Link></p>

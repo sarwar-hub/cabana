@@ -4,12 +4,13 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const Login = () => {
 
-
-    // get data from context
-    const {login, googleLogin} = useContext(AuthContext);
-
     const [error, setError] = useState('');
 
+    // get data from context
+    const {login, googleLogin, loader} = useContext(AuthContext);
+
+    
+   
 
     // login with email and password
     const handleLogin = async(event) => {
@@ -46,6 +47,7 @@ const Login = () => {
 
 
     return (
+        
         <div>
             <h1 className='text-4xl text-center pb-5 border-sec md:text-5xl text-sec'>Login</h1>
             
@@ -71,7 +73,8 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button type='submit' className="px-3 py-1 text-sec hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer">Login</button>
+                        {/* login button */}
+                        <button type='submit' className={` px-3 py-1 text-sec hover:text-sec transition border-2 border-light hover:border-sec cursor-pointer`}>{loader?'Please wait...':'Login'}</button>
                     </div>
                     <label className="label">
                         <p className='label-text-alt'>If new, please <Link to='/register'><span className="text-white link link-hover">Register</span></Link></p>
@@ -79,8 +82,7 @@ const Login = () => {
                     <div className="divider">OR</div>
                 </form>
                 <div className='card-body pt-0 flex'>
-                    <button onClick={handleGoogleLogin} className="px-3 py-1 text-sec transition border-2 border-sec hover:border-light cursor-pointer">Login with Google</button>
-                </div>
+                    <button onClick={handleGoogleLogin} className="px-3 py-1 text-sec transition border-2 border-sec hover:border-light cursor-pointer">Login with Google</button>                </div>
             </div>
         </div>
     );
