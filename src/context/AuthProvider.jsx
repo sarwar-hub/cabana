@@ -9,7 +9,7 @@ const AuthProvider = ({children}) => {
     // user state
     const [user, setUser] = useState({});
     const [loader, setLoader] = useState(true);
-    console.log(user);
+    
 
     // catch user
     useEffect(()=>{
