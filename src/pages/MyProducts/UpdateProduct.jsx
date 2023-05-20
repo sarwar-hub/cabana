@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const UpdateProduct = () => {
+    useTitle('Update Product');
     const exInfo = useLoaderData();
     const { _id, productName, description, stock, price } = exInfo;
 

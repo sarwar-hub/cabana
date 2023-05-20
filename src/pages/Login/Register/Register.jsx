@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register');
 
     const {register, updateNamePhoto, loader} = useContext(AuthContext);
 

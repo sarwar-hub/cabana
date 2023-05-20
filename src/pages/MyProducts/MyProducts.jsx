@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import ProductRow from './ProductRow';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const MyProducts = () => {
+    useTitle('My Products');
     // states
     const [products, setProducts] = useState([]);
    

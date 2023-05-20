@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 const AddProduct = () => {
+    useTitle('Add Product');
     const [selectedCategory, setSelectedCategory] = useState('');
     const {user} = useContext(AuthContext);
 
