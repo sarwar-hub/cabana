@@ -10,6 +10,7 @@ import AllProducts from "./pages/AllProducts/AllProducts";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import MyProducts from "./pages/MyProducts/MyProducts";
 import UpdateProduct from "./pages/MyProducts/UpdateProduct";
+import Err404 from "./pages/Err/Err404";
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:5000/details/${params.id}`)
             },
         ]
+    },
+    {
+        path: '*',
+        element: <Err404></Err404>
     }
 ])
 
