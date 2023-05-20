@@ -25,7 +25,7 @@ const Shop = () => {
     
   
     return (
-        <div className='mt-10'>
+        <div className='mt-16'>
             <h1 className='text-5xl text-light mb-10'>Shop</h1>
             
             <div>

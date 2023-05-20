@@ -7,7 +7,7 @@ const SecondaryLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className='py-10 max-w-[1280px] mx-auto p-2'>
+            <div className='my-10 max-w-[1280px] mx-auto p-2'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
