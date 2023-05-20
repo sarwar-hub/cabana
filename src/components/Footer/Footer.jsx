@@ -1,5 +1,5 @@
 import React from 'react';
-import logoSec from '../../assets/logo-sec.png';
+import logoSec from '../../assets/logo.png';
 
 const Footer = () => {
     return (
@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="space-y-5 border-t bg-dark text-light border-base-300">
                 <div className="items-center grid-flow-col">
                     <img className='h-[40px]' src={logoSec} alt="" />
-                    <p>Toy market since 1992</p>
+                    <p>Cabana since 1992</p>
                 </div>
                 <div className="">
                     <div className="grid grid-flow-col gap-4">
@@ -36,7 +36,7 @@ const Footer = () => {
 
             <footer className="footer footer-center p-4 bg-dark text-light">
                 <div>
-                    <p>Copyright © 2023 - All right reserved | cubeBuzz</p>
+                    <p>Copyright © 2023 - All right reserved | cabana</p>
                 </div>
             </footer>
         </div>
