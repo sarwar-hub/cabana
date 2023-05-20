@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../context/AuthProvider';
 
 const AddProduct = () => {
 
+    const {user} = useContext(AuthContext);
 
     const handleAddProduct = (event) => {
         event.preventDefault();
@@ -16,17 +18,21 @@ const AddProduct = () => {
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
 
-        console.log(productName, photo, category, stock, price, rating, description, sellerName, sellerEmail);
+        const product = {productName, photo, category, stock, price, rating, description, sellerName, sellerEmail};
+        
+        fetch(`http://localhost:5000/addProduct`, {
+             method: 'POST',
+             headers: { 'content-type': 'application/json'},
+             body: JSON.stringify(product)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+        
     }
 
 
 
-    const categories = [
-        'Science',
-        'Math',
-        'Engineering',
-        'Others'
-    ]
+    
     return (
 
         <form onSubmit={handleAddProduct} className='md:w-[90%] mx-auto'>
@@ -47,10 +53,10 @@ const AddProduct = () => {
                     <label className="font-semibold text-light mb-2 block">Category</label>
                     <select name="category" className='p-3 w-full text-light bg-base-200 outline-non' required>
                         <option value="others" disabled selected>Select Category</option>
-                        <option name='science'>Science</option>
-                        <option name='math'>Math</option>
-                        <option name='engineering'>Engineering</option>
-                        <option name='others'>Others</option>
+                        <option value='science'>Science</option>
+                        <option value='math'>Math</option>
+                        <option value='engineering'>Engineering</option>
+                        <option value='others'>Others</option>
                     
                     </select>
                 </div>
@@ -81,11 +87,11 @@ const AddProduct = () => {
             <div className="flex flex-col md:flex-row gap-10 mt-10">
                 <div className="w-full">
                     <label className="font-semibold text-light mb-2 block">Seller Name</label>
-                    <input className=" p-3 w-full text-light bg-base-200 outline-none focus:outline-sec" type="text" name="sellerName" placeholder="Seller Name" required />
+                    <input className=" p-3 w-full text-light bg-base-200 outline-none focus:outline-sec" type="text" name="sellerName" value={user?.displayName} placeholder="Seller Name" required />
                 </div>
                 <div className="w-full">
                     <label className="font-semibold text-light mb-2 block">Seller Email</label>
-                    <input className=" p-3 w-full text-light bg-base-200 outline-none focus:outline-sec" type="email" name="sellerEmail" placeholder="Seller Email" required />
+                    <input className=" p-3 w-full text-light bg-base-200 outline-none focus:outline-sec" type="email" name="sellerEmail" value={user?.email} placeholder="Seller Email" required />
                 </div>
             </div>
             {/* submit button */}

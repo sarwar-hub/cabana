@@ -27,7 +27,7 @@ const Shop = () => {
                 <button className={`${tab=='all'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('all')}>All</button>
                 <button className={`${tab=='science'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('science')}>Science</button>
                 <button className={`${tab=='math'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('math')}>Math</button>
-                <button className={`${tab=='Engineering'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('Engineering')}>Engineering</button>
+                <button className={`${tab=='engineering'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('engineering')}>Engineering</button>
                 <button className={`${tab=='others'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2`} onClick={()=>setTab('others')}>Others</button>
             </div>
             <hr className='mb-5 border-sec'/>
