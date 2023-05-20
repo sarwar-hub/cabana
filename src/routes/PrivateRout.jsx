@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/AuthProvider';
-import { Navigation } from 'swiper';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRout = ({children}) => {
