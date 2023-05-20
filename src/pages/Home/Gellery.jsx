@@ -31,7 +31,7 @@ const Gellery = () => {
             <h1 className='text-5xl text-light mb-10'>Gellery</h1>
 
 
-            <div className='border-r-2 border-l-2 border-sec bg-sec/10 py-5 px-5'>
+            <div className='border-r-2 border-l-2 border-sec bg-sec/10 p-10 mx-auto'>
             <Swiper
                 autoplay={{delay:1500}}
                 loop={true}
