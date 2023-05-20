@@ -14,7 +14,12 @@ const Shop = () => {
 
         fetch(`http://localhost:5000/products/${tab}`)
         .then(res=>res.json())
-        .then(data=>setProducts(data))
+        .then(data=>{
+            setProducts(data)
+        })
+        .catch(err=>{
+            console.log(err.message);
+        })
     
     },[tab])
     

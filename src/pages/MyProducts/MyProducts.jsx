@@ -16,7 +16,12 @@ const MyProducts = () => {
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())
-        .then(data=>setProducts(data))
+        .then(data=>{
+            setProducts(data);
+        })
+        .catch(err=>{
+            console.log(err.message);
+        })
     }, [user])
     
    const handleDelete = (id) => {
@@ -24,7 +29,12 @@ const MyProducts = () => {
         method: 'DELETE'
       })
       .then(res=>res.json())
-      .then(data=>console.log(data))
+      .then(data=>{
+        console.log(data)
+      })
+      .catch(err=>{
+        console.log(err.message);
+      })
    }
     
 

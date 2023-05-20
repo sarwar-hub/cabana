@@ -27,8 +27,14 @@ const AddProduct = () => {
              body: JSON.stringify(product)
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
-        form.reset();
+        .then(data=>{
+            console.log(data);
+            form.reset();
+        })
+        .catch(err =>{
+            console.log(err.message);
+        })
+        
         
         
     }
