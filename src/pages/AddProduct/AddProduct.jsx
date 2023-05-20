@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
 const AddProduct = () => {
-
+    const [selectedCategory, setSelectedCategory] = useState('');
     const {user} = useContext(AuthContext);
 
     const handleAddProduct = (event) => {
@@ -10,15 +10,16 @@ const AddProduct = () => {
         const form = event.target;
         const productName = form.name.value;
         const photo = form.photo.value;
-        const category = form.category.value;
+        const category = selectedCategory;
         const stock = form.stock.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
+        const sellerName = user?.displayName;
+        const sellerEmail = user?.email;
 
         const product = {productName, photo, category, stock, price, rating, description, sellerName, sellerEmail};
+        console.log(product);
         
         fetch(`http://localhost:5000/addProduct`, {
              method: 'POST',
@@ -34,8 +35,10 @@ const AddProduct = () => {
 
     
     return (
-
-        <form onSubmit={handleAddProduct} className='md:w-[90%] mx-auto'>
+        <div className='md:w-[90%] mx-auto'>
+        <h1 className='text-5xl rounded-none text-light mb-10'>Add a Toy</h1>
+         
+        <form onSubmit={handleAddProduct}>
             {/* form field row */}
             <div className="flex flex-col md:flex-row gap-10 mt-10">
                 <div className="w-full">
@@ -51,8 +54,8 @@ const AddProduct = () => {
             <div className="flex flex-col md:flex-row gap-10 mt-10">
                 <div className="w-full">
                     <label className="font-semibold text-light mb-2 block">Category</label>
-                    <select name="category" className='p-3 w-full text-light bg-base-200 outline-non' required>
-                        <option value="others" disabled selected>Select Category</option>
+                    <select onChange={(e)=>setSelectedCategory(e.target.value)} name="category" className='p-3 w-full text-light bg-base-200 outline-non' required>
+                        <option value='others' >Select Category</option>
                         <option value='science'>Science</option>
                         <option value='math'>Math</option>
                         <option value='engineering'>Engineering</option>
@@ -97,6 +100,7 @@ const AddProduct = () => {
             {/* submit button */}
             <input className="mt-10 font-rancho text-3xl p-2 bg-pri hover:bg-sec/10 transition text-sec border-sec border-2 w-full rounded cursor-pointer" type="submit"  value="Add This Toy"/>
         </form>
+        </div>
     );
 };
 
