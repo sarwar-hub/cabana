@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { AuthContext } from '../../context/AuthProvider';
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Navbar = () => {
 
@@ -16,13 +17,13 @@ const Navbar = () => {
 
     // navigation items
     const items = [
-        <Link to='/'>Home</Link>,
-        <Link to='/allProducts'>All Products</Link>,
-        <Link to='/blog'>Blog</Link>,
+        <ActiveLink to='/'>Home</ActiveLink>,
+        <ActiveLink to='/allProducts'>All Products</ActiveLink>,
+        <ActiveLink to='/blog'>Blog</ActiveLink>,
     ]
     const privateItems = [
-        <Link to='/myproducts'>My Products</Link>,
-        <Link to='/addproduct'>Add Product</Link>,
+        <ActiveLink to='/myproducts'>My Products</ActiveLink>,
+        <ActiveLink to='/addproduct'>Add Product</ActiveLink>,
     ]
 
 
