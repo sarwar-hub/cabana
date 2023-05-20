@@ -20,7 +20,7 @@ const Shop = () => {
     
   
     return (
-        <div className=''>
+        <div className='mt-[100px]'>
             <h1 className='text-5xl text-light mb-10'>Shop</h1>
             
             <div>
@@ -33,7 +33,7 @@ const Shop = () => {
             <hr className='mb-5 border-sec'/>
 
             {/* products */}
-            <div className='grid grid-cols-1 lg:grid-cols-2 md:gap-10 gap-5 border-2 border-gray-100 p-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 md:gap-10 gap-5 border-2 border-sec p-5'>
                 {
                     products.map(product=> <ProductCard key={product._id} product={product}></ProductCard>)
                 }

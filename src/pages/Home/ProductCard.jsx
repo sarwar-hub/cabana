@@ -4,11 +4,11 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 const ProductCard = ({ product }) => {
 
-    const { _id, image, productName, price, rating } = product;
+    const { _id, photo, productName, price, rating } = product;
    
     return (
         <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
-            <figure><img className='md:h-[250px] w-full md:w-[220px]' src={image} alt="product image" /></figure>
+            <figure><img className='md:h-auto w-full object-cover' src={photo} alt="product image" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{productName}</h2>
                 <p><strong>Price: </strong>${price}</p>

@@ -5,14 +5,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Details = () => {
     const product = useLoaderData();
-    const { _id, image, category, productName, price, rating, sellerName, sellerEmail, stockQuantity, description } = product;
+    const { _id, photo, category, productName, price, rating, sellerName, sellerEmail, stockQuantity, description } = product;
 
     return (
         <>
             <h1 className='text-5xl text-light mb-10'>Details</h1>
 
             <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
-                <figure><img className='md:h-[400px] w-full md:w-[420px]' src={image} alt="product image" /></figure>
+                <figure><img className='w-full' src={photo} alt="product image" /></figure>
                 <div className="card-body">
                     <div className='flex flex-col md:flex-row justify-center md:justify-between'>
                         <div>
