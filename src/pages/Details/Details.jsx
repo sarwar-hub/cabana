@@ -4,20 +4,20 @@ import Rating from 'react-rating';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Details = () => {
-    const cube = useLoaderData();
-    const { _id, image, category, cubeName, price, rating, sellerName, sellerEmail, stockQuantity, description } = cube;
+    const product = useLoaderData();
+    const { _id, image, category, productName, price, rating, sellerName, sellerEmail, stockQuantity, description } = product;
 
     return (
         <>
             <h1 className='text-5xl text-light mb-10'>Details</h1>
 
             <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
-                <figure><img className='md:h-[400px] w-full md:w-[420px]' src={image} alt="cube image" /></figure>
+                <figure><img className='md:h-[400px] w-full md:w-[420px]' src={image} alt="product image" /></figure>
                 <div className="card-body">
                     <div className='flex justify-between'>
                         <div>
-                            <h2 className="card-title">{cubeName}</h2>
-                            <p><strong>Type: </strong>{category}</p>
+                            <h2 className="card-title">{productName}</h2>
+                            <p><strong>Category: </strong>{category}</p>
                             <p><strong>Seller Name: </strong>{sellerName}</p>
                             <p><strong>Seller Email: </strong>{sellerEmail}</p>
                             <p><strong>Stock Available: </strong>{stockQuantity}</p>

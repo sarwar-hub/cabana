@@ -1,38 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import CubeCard from './cubeCard';
+import ProductCard from './ProductCard';
 
 const Shop = () => {
     
     // states
     const [tab, setTab] = useState('all');
-    const [cubes, setCubes] = useState([]);
+    const [products, setProducts] = useState([]);
 
 
 
     
     useEffect(()=>{
 
-        fetch(`http://localhost:5000/cubes/${tab}`)
+        fetch(`http://localhost:5000/products/${tab}`)
         .then(res=>res.json())
-        .then(data=>setCubes(data))
+        .then(data=>setProducts(data))
     
     },[tab])
     
-
-    const filterByCategory4 = () => {
-        
-
-    }
-    const filterByCategory3 = () => {
-        setTab('3x3');
-    }
-    const filterByCategory2 = () => {
-        setTab('2x2');
-    }
-
+    
     return (
         <div className=''>
-            <h1 className='text-5xl text-light mb-10'>Shop by Category</h1>
+            <h1 className='text-5xl text-light mb-10'>Shop</h1>
             
             <div>
                 <button className={`${tab=='all'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('all')}>All</button>
@@ -45,7 +34,7 @@ const Shop = () => {
             {/* products */}
             <div className='grid grid-cols-1 lg:grid-cols-2 md:gap-10 gap-5 border-2 border-gray-100 p-5'>
                 {
-                    cubes.map(cube=> <CubeCard key={cube._id} cube={cube}></CubeCard>)
+                    products.map(product=> <ProductCard key={product._id} product={product}></ProductCard>)
                 }
             </div>
         </div>

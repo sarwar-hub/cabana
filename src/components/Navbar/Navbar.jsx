@@ -11,12 +11,12 @@ const Navbar = () => {
     // navigation items
     const items = [
         <Link to='/'>Home</Link>,
-        <Link to='/allcubes'>All Cubes</Link>,
+        <Link to='/allProducts'>All Products</Link>,
         <Link to='/blog'>Blog</Link>,
     ]
     const privateItems = [
-        <Link to='/mycubes'>My Cubes</Link>,
-        <Link to='/addcube'>Add Cube</Link>,
+        <Link to='/myproducts'>My Products</Link>,
+        <Link to='/addproduct'>Add Product</Link>,
     ]
 
 

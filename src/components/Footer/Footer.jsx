@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="space-y-5 border-t bg-dark text-light border-base-300">
                 <div className="items-center grid-flow-col">
                     <img className='h-[40px]' src={logoSec} alt="" />
-                    <p>Cube market since 1992</p>
+                    <p>Toy market since 1992</p>
                 </div>
                 <div className="">
                     <div className="grid grid-flow-col gap-4">
@@ -24,7 +24,7 @@ const Footer = () => {
                 <p>23986 Aliso Creek Rd</p>
                 <p>Laguna Niguel, CA 92677</p>
                 <p>+213 999 000</p>
-                <p>buy@cubebuzz.com</p>
+                <p>buy@productbuzz.com</p>
             </div>
             <div>
                 <span className="footer-title">Legal</span>
@@ -36,7 +36,7 @@ const Footer = () => {
 
             <footer className="footer footer-center p-4 bg-dark text-light">
                 <div>
-                    <p>Copyright © 2023 - All right reserved | cubBuzz</p>
+                    <p>Copyright © 2023 - All right reserved | cubeBuzz</p>
                 </div>
             </footer>
         </div>

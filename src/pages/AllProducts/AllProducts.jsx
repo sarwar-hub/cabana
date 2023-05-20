@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import CubeRow from './CubeRow';
+import ProductRow from './ProductRow';
 
-const AllCubes = () => {
-    const loadedCubes = useLoaderData();
+const AllProducts = () => {
+    const loadedProducts = useLoaderData();
 
-    const [cubes, setCubes] = useState(loadedCubes);
+    const [products, setProducts] = useState(loadedProducts);
     const [searchText, setSearchText] = useState('');
 
     const search = async(event) => {
@@ -13,7 +13,7 @@ const AllCubes = () => {
         try{
             const res = await fetch(`http://localhost:5000/searchBy/${searchText}`);
             const data = await res.json();
-            setCubes(data);
+            setProducts(data);
         } catch(err) {
             console.log(err.message);
         }     
@@ -21,7 +21,7 @@ const AllCubes = () => {
 
     return (
         <div>
-            <h1 className='text-5xl rounded-none text-light mb-10'>All cubes</h1>
+            <h1 className='text-5xl rounded-none text-light mb-10'>All Toys</h1>
 
             {/* search form */}
             <form onSubmit={search} className="form-control my-5">
@@ -34,10 +34,10 @@ const AllCubes = () => {
             </form>
 
             {/* table */}
-            {cubes.length>0
+            {products.length>0
             ?
             <>
-            <p className='mb-2'>Found {cubes.length} result</p>
+            <p className='mb-2'>Found {products.length} result</p>
             <div className="overflow-x-auto">
                 <table className="table table-compact w-full">
                     <thead className='bg-dark'>
@@ -53,7 +53,7 @@ const AllCubes = () => {
                     </thead>
                     <tbody>
                         {
-                            cubes.map((cube, index) => <CubeRow key={cube._id} cube={cube} sl={index}></CubeRow>)
+                            products.map((product, index) => <ProductRow key={product._id} product={product} sl={index}></ProductRow>)
                         }
                     </tbody>
                 </table>
@@ -66,4 +66,4 @@ const AllCubes = () => {
     );
 };
 
-export default AllCubes;
+export default AllProducts;

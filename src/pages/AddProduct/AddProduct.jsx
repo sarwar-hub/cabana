@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddCube = () => {
+const AddProduct = () => {
 
 
     const handleAddProduct = (event) => {
@@ -90,4 +90,4 @@ const AddCube = () => {
     );
 };
 
-export default AddCube;
+export default AddProduct;

@@ -2,14 +2,14 @@ import React from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-const CubeRow = ({ cube, sl }) => {
+const ProductRow = ({ product, sl }) => {
 
-    const { _id, cubeName, sellerName, stockQuantity, category, price } = cube;
-   
+    const { _id, productName, sellerName, stockQuantity, category, price } = product;
+   console.log(product);
     return (
         <tr>
             <th>{sl+1}</th>
-            <td>{cubeName}</td>
+            <td>{productName}</td>
             <td>{category}</td>
             <td>{sellerName}</td>
             <td>{stockQuantity}</td>
@@ -19,4 +19,4 @@ const CubeRow = ({ cube, sl }) => {
     );
 };
 
-export default CubeRow;
+export default ProductRow;
