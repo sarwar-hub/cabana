@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCul_WX9snoaOU0Q71i07uV5zTv7O2LsKY",
-  authDomain: "cubebuzz-ef5dc.firebaseapp.com",
-  projectId: "cubebuzz-ef5dc",
-  storageBucket: "cubebuzz-ef5dc.appspot.com",
-  messagingSenderId: "251025069752",
-  appId: "1:251025069752:web:1846516adde7fc591b464d"
+  apiKey: "AIzaSyCoKnoDS_RWzmoSYffDA76FTtDLwxFV9bE",
+  authDomain: "cabana-156bd.firebaseapp.com",
+  projectId: "cabana-156bd",
+  storageBucket: "cabana-156bd.appspot.com",
+  messagingSenderId: "933153241123",
+  appId: "1:933153241123:web:ea0b6b9f8b5bcb2dced996"
 };
 
 // Initialize Firebase
