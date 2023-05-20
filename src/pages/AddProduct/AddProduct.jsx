@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddProduct = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -28,8 +29,17 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+            if(data.acknowledged){
             form.reset();
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully Added the Toy',
+                showConfirmButton: false,
+                timer: 1500
+            }) 
+            }
+
         })
         .catch(err =>{
             console.log(err.message);

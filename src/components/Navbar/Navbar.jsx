@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo-light.png';
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -7,6 +7,12 @@ const Navbar = () => {
 
     // get data from context
     const {user, logout} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = async() => {
+        await logout();
+        navigate('/');
+    }
 
     // navigation items
     const items = [
@@ -59,7 +65,7 @@ const Navbar = () => {
                         {/* profile items */}
                         <li className='text-sec hover:text-sec transition'>{user?.displayName}</li>
                         <li className='text-light hover:text-sec transition'><Link to='/editProfile'>Edit profile</Link></li>
-                        <button onClick={logout} className="px-3 py-1 text-red-500 hover:text-red-600 transition border-2 border-light hover:border-red-600 cursor-pointer">Log out</button>
+                        <button onClick={handleLogout} className="px-3 py-1 text-red-500 hover:text-red-600 transition border-2 border-light hover:border-red-600 cursor-pointer">Log out</button>
                     </ul>
                 </div>
                 }  

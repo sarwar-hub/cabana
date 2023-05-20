@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import ProductRow from './ProductRow';
 import { AuthContext } from '../../context/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const MyProducts = () => {
@@ -25,16 +26,48 @@ const MyProducts = () => {
     }, [user])
     
    const handleDelete = (id) => {
-      fetch(`http://localhost:5000/deleteProduct/${id}`, {
-        method: 'DELETE'
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        console.log(data)
-      })
-      .catch(err=>{
-        console.log(err.message);
-      })
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d63031',
+        cancelButtonColor: '#0dcaf0',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+                method: 'DELETE'
+              })
+              .then(res=>res.json())
+              .then(data=>{
+                if(data.deletedCount>0){
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Successfully Deleted the Toy',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+              })
+              .catch(err=>{
+                console.log(err.message);
+              })
+        
+        }
+    })
+
+
+
+
+
+
+
+      
+
+
    }
     
 

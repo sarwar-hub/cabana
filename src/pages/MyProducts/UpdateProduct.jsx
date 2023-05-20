@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { AuthContext } from '../../context/AuthProvider';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 
 const UpdateProduct = () => {
     const exInfo = useLoaderData();
@@ -23,7 +24,15 @@ const UpdateProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            if(data.modifiedCount>0) {
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Successfully Updated the Toy',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            }
         })
         .catch(err=>{
             console.log(err.message);
@@ -36,6 +45,7 @@ const UpdateProduct = () => {
 
     return (
         <div className='md:w-[90%] mx-auto'>
+            <Link to='/myProducts'><button className='p-3 text-sec underline hover:text-sec/80 transition'>← Back to my Product</button></Link>
             <h1 className='text-5xl rounded-none text-light mb-10'>Update {productName}</h1>
 
             <form onSubmit={handleAddProduct}>
