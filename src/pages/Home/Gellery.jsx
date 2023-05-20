@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation, EffectCoverflow } from "swiper";
+import { Autoplay, Pagination } from "swiper";
 
 // Import Swiper styles
 import 'swiper/swiper.min.css';
@@ -29,16 +29,13 @@ const Gellery = () => {
                 autoplay={{delay:1500}}
                 loop={true}
                 pagination={true}
-                navigation={true}
                 spaceBetween={50}
                 slidesPerView={3}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-                modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
+                modules={[Autoplay, Pagination ]}
             >
                 
                 {
-                    products.map(product=><SwiperSlide key={product._id}><img src={product.photo} alt="slide image" /></SwiperSlide>)
+                    products.map(product=><SwiperSlide key={product._id}><img className='h-[200px]' src={product.photo} alt="slide image" /></SwiperSlide>)
                 }
             </Swiper>
         </div>

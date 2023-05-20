@@ -11,10 +11,10 @@ const ProductRow = ({ product, sl, handleDelete }) => {
             <tr>
                 <th>{sl + 1}</th>
                 <td><img className='w-[40px] h-auto' src={photo} alt="product image" /></td>
-                <td>{productName}</td>
+                <td>{productName.slice(0,30)}...</td>
                 <td>{category}</td>
                 <td>{rating}</td>
-                <td>{description}</td>
+                <td>{description.slice(0, 10)}...</td>
                 <td>{stock}</td>
                 <td>{price}</td>
                 <td>

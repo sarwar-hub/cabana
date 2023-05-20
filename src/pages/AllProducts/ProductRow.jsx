@@ -7,7 +7,7 @@ const ProductRow = ({ product, sl }) => {
     return (
         <tr>
             <th>{sl+1}</th>
-            <td>{productName}</td>
+            <td>{productName.slice(0,30)}...</td>
             <td>{category}</td>
             <td>{sellerName}</td>
             <td>{stock}</td>
