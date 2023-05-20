@@ -39,7 +39,7 @@ const AllProducts = () => {
             <>
             <p className='mb-2'>Found {products.length} result</p>
             <div className="overflow-x-auto">
-                <table className="table table-compact w-full">
+                <table className="table table-zebra w-full">
                     <thead className='bg-dark'>
                         <tr className='rounded-none'>
                             <th>SL</th>

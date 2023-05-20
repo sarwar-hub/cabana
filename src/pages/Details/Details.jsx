@@ -14,7 +14,7 @@ const Details = () => {
             <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
                 <figure><img className='md:h-[400px] w-full md:w-[420px]' src={image} alt="product image" /></figure>
                 <div className="card-body">
-                    <div className='flex justify-between'>
+                    <div className='flex flex-col md:flex-row justify-center md:justify-between'>
                         <div>
                             <h2 className="card-title">{productName}</h2>
                             <p><strong>Category: </strong>{category}</p>
@@ -24,7 +24,7 @@ const Details = () => {
                             <p><strong>Price: </strong>${price}</p>
                         </div>
                         <div>
-                            <p>{description}</p>
+                            <p><strong>Description: </strong>{description}</p>
                         </div>
                     </div>
                     <div className="mt-auto card-actions flex justify-between">
