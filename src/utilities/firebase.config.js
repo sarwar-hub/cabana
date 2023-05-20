@@ -5,13 +5,14 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCoKnoDS_RWzmoSYffDA76FTtDLwxFV9bE",
-  authDomain: "cabana-156bd.firebaseapp.com",
-  projectId: "cabana-156bd",
-  storageBucket: "cabana-156bd.appspot.com",
-  messagingSenderId: "933153241123",
-  appId: "1:933153241123:web:ea0b6b9f8b5bcb2dced996"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
