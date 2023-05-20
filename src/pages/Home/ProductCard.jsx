@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({ product }) => {
 
     const { _id, image, productName, price, rating } = product;
-    console.log(image);
+   
     return (
         <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
             <figure><img className='md:h-[250px] w-full md:w-[220px]' src={image} alt="product image" /></figure>

@@ -22,9 +22,10 @@ const AddProduct = () => {
 
 
     const categories = [
-        'Sports',
-        'Police',
-        'Regular',
+        'Science',
+        'Math',
+        'Engineering',
+        'Others'
     ]
     return (
 
@@ -45,9 +46,12 @@ const AddProduct = () => {
                 <div className="w-full">
                     <label className="font-semibold text-light mb-2 block">Category</label>
                     <select name="category" className='p-3 w-full text-light bg-base-200 outline-non' required>
-                        {
-                            categories.map(cat => <option name={cat}>{cat}</option>)
-                        }
+                        <option value="others" disabled selected>Select Category</option>
+                        <option name='science'>Science</option>
+                        <option name='math'>Math</option>
+                        <option name='engineering'>Engineering</option>
+                        <option name='others'>Others</option>
+                    
                     </select>
                 </div>
                 <div className="w-full">

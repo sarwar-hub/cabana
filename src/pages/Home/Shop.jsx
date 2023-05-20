@@ -9,7 +9,7 @@ const Shop = () => {
 
 
 
-    
+    // load product by category
     useEffect(()=>{
 
         fetch(`http://localhost:5000/products/${tab}`)
@@ -18,16 +18,17 @@ const Shop = () => {
     
     },[tab])
     
-    
+  
     return (
         <div className=''>
             <h1 className='text-5xl text-light mb-10'>Shop</h1>
             
             <div>
                 <button className={`${tab=='all'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('all')}>All</button>
-                <button className={`${tab=='4x4'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('4x4')}>4x4</button>
-                <button className={`${tab=='3x3'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('3x3')}>3x3</button>
-                <button className={`${tab=='2x2'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2`} onClick={()=>setTab('2x2')}>2x2</button>
+                <button className={`${tab=='science'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('science')}>Science</button>
+                <button className={`${tab=='math'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('math')}>Math</button>
+                <button className={`${tab=='Engineering'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2 border-r-0`} onClick={()=>setTab('Engineering')}>Engineering</button>
+                <button className={`${tab=='others'? 'bg-sec text-dark ' : ''} px-4 py-3 border-sec border-2`} onClick={()=>setTab('others')}>Others</button>
             </div>
             <hr className='mb-5 border-sec'/>
 
