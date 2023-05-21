@@ -3,12 +3,15 @@ import ProductRow from './ProductRow';
 import { AuthContext } from '../../context/AuthProvider';
 import Swal from 'sweetalert2';
 import useTitle from '../../hooks/useTitle';
+import { Link } from 'react-router-dom';
 
 
 const MyProducts = () => {
     useTitle('My Products');
+
     // states
     const [products, setProducts] = useState([]);
+    const [fetchLoader, setFetchLoader] = useState(true);
     const [sortBy, setSortBy] = useState(null);
     console.log(sortBy);
 
@@ -23,6 +26,7 @@ const MyProducts = () => {
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
+                setFetchLoader(false);
             })
             .catch(err => {
                 console.log(err.message);
@@ -70,11 +74,18 @@ const MyProducts = () => {
 
     }
 
+    // if loading
+    if(fetchLoader){
+        return <span className='flex justify-center'><span className='text-white text-xl bg-sec/20 py-2 px-5 absolute'>Loading...</span></span>;
+         
+    }
+
 
     return (
+        
         <div>
             <h1 className='text-5xl rounded-none text-light mb-10'>My Toys</h1>
-
+            
 
             {/* before table */}
             <div className='md:flex justify-between'>
@@ -91,6 +102,8 @@ const MyProducts = () => {
             </div>
 
             {/* table */}
+            {products.length>0
+            ?
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <thead className='bg-dark'>
@@ -113,8 +126,12 @@ const MyProducts = () => {
                     </tbody>
                 </table>
             </div>
+            :
+            <p className='text-center text-sec'>You havn't added any toy. Go to <Link className='text-white underline' to='/addProduct'>Add Toy</Link></p>
+            }
 
         </div>
+        
     );
 };
 

@@ -18,12 +18,12 @@ const Navbar = () => {
     // navigation items
     const items = [
         <ActiveLink to='/'>Home</ActiveLink>,
-        <ActiveLink to='/allProducts'>All Products</ActiveLink>,
+        <ActiveLink to='/allProducts'>All Toys</ActiveLink>,
         <ActiveLink to='/blog'>Blog</ActiveLink>,
     ]
     const privateItems = [
-        <ActiveLink to='/myproducts'>My Products</ActiveLink>,
-        <ActiveLink to='/addproduct'>Add Product</ActiveLink>,
+        <ActiveLink to='/myProducts'>My Toys</ActiveLink>,
+        <ActiveLink to='/addProduct'>Add Toy</ActiveLink>,
     ]
 
 
