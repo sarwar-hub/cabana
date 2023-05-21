@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ProductRow from './ProductRow';
 import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../../context/AuthProvider';
 
 const AllProducts = () => {
     useTitle('All Products');
     const loadedProducts = useLoaderData();
+
+    // fetch loader
+    const { fetchLoader, setFetchLoader} = useContext(AuthContext);
 
     const [products, setProducts] = useState(loadedProducts);
     const [searchText, setSearchText] = useState('');
@@ -13,9 +17,10 @@ const AllProducts = () => {
     const search = async(event) => {
         event.preventDefault();
         try{
-            const res = await fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/searchBy/${searchText}`);
+            const res = await fetch(`https://cubebuzz-server.vercel.app/searchBy/${searchText}`);
             const data = await res.json();
             setProducts(data);
+            setFetchLoader(false)
         } catch(err) {
             console.log(err.message);
         }     

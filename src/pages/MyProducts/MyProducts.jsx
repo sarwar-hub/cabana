@@ -9,9 +9,11 @@ import { Link } from 'react-router-dom';
 const MyProducts = () => {
     useTitle('My Products');
 
+    // fetch loader from context
+    const { fetchLoader, setFetchLoader} = useContext(AuthContext);
+
     // states
     const [products, setProducts] = useState([]);
-    const [fetchLoader, setFetchLoader] = useState(true);
     const [sortBy, setSortBy] = useState(null);
     console.log(sortBy);
 
@@ -20,7 +22,7 @@ const MyProducts = () => {
 
 
     // load data based on email
-    const url = `https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/myProducts?email=${user?.email}&sort=${sortBy}`;
+    const url = `https://cubebuzz-server.vercel.app/myProducts?email=${user?.email}&sort=${sortBy}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -48,7 +50,7 @@ const MyProducts = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/deleteProduct/${id}`, {
+                fetch(`https://cubebuzz-server.vercel.app/deleteProduct/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -74,11 +76,7 @@ const MyProducts = () => {
 
     }
 
-    // if loading
-    if(fetchLoader){
-        return <span className='flex justify-center'><span className='text-white text-xl bg-sec/20 py-2 px-5 absolute'>Loading...</span></span>;
-         
-    }
+    
 
 
     return (

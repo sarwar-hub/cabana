@@ -41,12 +41,12 @@ const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <PrivateRout><Details></Details></PrivateRout>,
-                loader: ({params})=>fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/details/${params.id}`)
+                loader: ({params})=>fetch(`https://cubebuzz-server.vercel.app/details/${params.id}`)
             },
             {
                 path: 'allProducts',
                 element: <AllProducts></AllProducts>,
-                loader: ()=>fetch('https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/products/all')
+                loader: ()=>fetch('https://cubebuzz-server.vercel.app/products/all')
             },
             {
                 path: 'addProduct',
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: 'updateProduct/:id',
                 element: <UpdateProduct></UpdateProduct>,
-                loader: ({params})=> fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/details/${params.id}`)
+                loader: ({params})=> fetch(`https://cubebuzz-server.vercel.app/details/${params.id}`)
             },
             {
                 path: 'blog',

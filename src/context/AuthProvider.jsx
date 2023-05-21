@@ -9,6 +9,10 @@ const AuthProvider = ({children}) => {
     // user state
     const [user, setUser] = useState({});
     const [loader, setLoader] = useState(true);
+
+    // fetch loader
+    const [fetchLoader, setFetchLoader] = useState(true);
+
     
 
     // catch user
@@ -66,7 +70,9 @@ const AuthProvider = ({children}) => {
         login,
         googleLogin,
         logout,
-        loader
+        loader,
+        fetchLoader,
+        setFetchLoader
 
 
     }

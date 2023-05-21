@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const ProductRow = ({ product, sl }) => {
 
     const { _id, productName, sellerName, stock, category, price } = product;
-   console.log(product);
+   
     return (
         <tr>
             <th>{sl+1}</th>

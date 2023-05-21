@@ -26,7 +26,7 @@ const Gellery = () => {
 
     useEffect(()=>{
 
-        fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/products/all`)
+        fetch(`https://cubebuzz-server.vercel.app/products/all`)
         .then(res=>res.json())
         .then(data=>setProducts(data))
     
