@@ -16,7 +16,7 @@ const Newsletter = () => {
 
     }
     return (
-        <div className='mt-10 bg-sec/20 flex flex-col md:flex-row justify-between md:justify-center items-center p-10'>
+        <div className='mt-10 bg-sec/20 flex flex-col md:flex-row justify-between md:justify-center items-center px-5 py-10 md:p-10'>
             <div className='text-center md:text-left'>
                 <h2 className='text-white text-5xl'>Subscribe to our Newsletter</h2>
                 <p className='text-light md:w-[50%]'>We'll send your notification throw your email when we update our collection of toys. Thank you.</p>
