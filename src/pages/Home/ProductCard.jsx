@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 // aos
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from '../../context/AuthProvider';
 
 const ProductCard = ({ product }) => {
     // aos init
@@ -14,9 +15,11 @@ const ProductCard = ({ product }) => {
         Aos.init()
     },[])
 
+    const {user} = useContext(AuthContext);
     const { _id, photo, productName, price, rating } = product;
 
      const clickedOnDetails = () => {
+        if(!user){
         Swal.fire({
             position: 'top-center',
             icon: 'warning',
@@ -24,6 +27,7 @@ const ProductCard = ({ product }) => {
             showConfirmButton: false,
             timer: 2000
           })
+        }
      }
    
     return (
