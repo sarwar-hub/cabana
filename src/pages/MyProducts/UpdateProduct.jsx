@@ -19,7 +19,7 @@ const UpdateProduct = () => {
 
         const newInfo = { stock, price, description };
         
-        fetch(`http://localhost:5000/updateProduct/${_id}`, {
+        fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/updateProduct/${_id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json'},
             body: JSON.stringify(newInfo)

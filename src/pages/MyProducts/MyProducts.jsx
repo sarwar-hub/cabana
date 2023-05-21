@@ -17,7 +17,7 @@ const MyProducts = () => {
 
 
     // load data based on email
-    const url = `http://localhost:5000/myProducts?email=${user?.email}&sort=${sortBy}`;
+    const url = `https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/myProducts?email=${user?.email}&sort=${sortBy}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -44,7 +44,7 @@ const MyProducts = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteProduct/${id}`, {
+                fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/deleteProduct/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

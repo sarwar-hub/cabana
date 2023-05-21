@@ -12,7 +12,7 @@ const Shop = () => {
     // load product by category
     useEffect(()=>{
 
-        fetch(`http://localhost:5000/products/${tab}`)
+        fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/products/${tab}`)
         .then(res=>res.json())
         .then(data=>{
             setProducts(data)

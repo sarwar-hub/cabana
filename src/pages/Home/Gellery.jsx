@@ -19,7 +19,7 @@ const Gellery = () => {
 
     useEffect(()=>{
 
-        fetch(`http://localhost:5000/products/all`)
+        fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/products/all`)
         .then(res=>res.json())
         .then(data=>setProducts(data))
     

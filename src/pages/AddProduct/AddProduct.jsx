@@ -24,7 +24,7 @@ const AddProduct = () => {
         const product = {productName, photo, category, stock, price, rating, description, sellerName, sellerEmail};
         console.log(product);
         
-        fetch(`http://localhost:5000/addProduct`, {
+        fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/addProduct`, {
              method: 'POST',
              headers: { 'content-type': 'application/json'},
              body: JSON.stringify(product)

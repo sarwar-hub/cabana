@@ -13,7 +13,7 @@ const AllProducts = () => {
     const search = async(event) => {
         event.preventDefault();
         try{
-            const res = await fetch(`http://localhost:5000/searchBy/${searchText}`);
+            const res = await fetch(`https://cubebuzz-server-k2vlqeyne-sarwar-hub.vercel.app/searchBy/${searchText}`);
             const data = await res.json();
             setProducts(data);
         } catch(err) {
