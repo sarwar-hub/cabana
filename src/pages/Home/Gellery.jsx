@@ -11,8 +11,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+// aos
+import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 const Gellery = () => {
+    // aos init
+    useEffect(()=>{
+        Aos.init()
+    },[])
 
     const [products, setProducts] = useState([]);
 
@@ -31,7 +38,7 @@ const Gellery = () => {
             <h1 className='text-5xl text-light mb-10'>Gellery</h1>
 
 
-            <div className='border-r-2 border-l-2 border-sec bg-sec/10 p-10 mx-auto'>
+            <div className='border-r-2 border-l-2 border-sec bg-sec/10 p-10 mx-auto' data-aos="fade-in">
             <Swiper
                 autoplay={{delay:1500}}
                 loop={true}
@@ -46,6 +53,7 @@ const Gellery = () => {
                 {
                     products.map(product=><SwiperSlide key={product._id}><img className='max-h-[150px] w-[150px] md:max-h-[200px] md:max-w-[200px]' src={product.photo} alt="slide image" /></SwiperSlide>)
                 }
+                
             </Swiper>
             </div>
 

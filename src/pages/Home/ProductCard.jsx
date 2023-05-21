@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+
+// aos
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 const ProductCard = ({ product }) => {
+    // aos init
+    useEffect(()=>{
+        Aos.init()
+    },[])
 
     const { _id, photo, productName, price, rating } = product;
 
@@ -18,7 +27,7 @@ const ProductCard = ({ product }) => {
      }
    
     return (
-        <div className="rounded-none card md:card-side bg-base-100 shadow-xl">
+        <div className="rounded-none card md:card-side bg-base-100 shadow-xl" data-aos="fade-in">
             <figure><img className='md:h-auto w-full object-cover' src={photo} alt="product image" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{productName}</h2>
