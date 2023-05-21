@@ -24,7 +24,7 @@ const Footer = () => {
                 <p>23986 Aliso Creek Rd</p>
                 <p>Laguna Niguel, CA 92677</p>
                 <p>+213 999 000</p>
-                <p>buy@productbuzz.com</p>
+                <p>buy@cabana.com</p>
             </div>
             <div>
                 <span className="footer-title">Legal</span>

@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
      }
    
     return (
-        <div className="rounded-none card md:card-side bg-base-100 shadow-xl" data-aos="fade-in">
+        <div className="rounded-none card md:card-side bg-[#2A303C] shadow-xl" data-aos="fade-in">
             <figure><img className='md:h-auto w-full object-cover' src={photo} alt="product image" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{productName}</h2>
